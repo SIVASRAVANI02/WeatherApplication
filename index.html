@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://kit.fontawesome.com/998a4f7cac.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="formy">
+        <div class="container">
+        <div class="header">
+            <h2 style="text-align: center; margin-bottom: 3%; color: blue;">Weather App</h2>
+            <div class="serach-box">
+        <input type="text" placeholder="Enter City" id="info" class="input-box"/>
+        <button style="border: none;"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+    </form>
+    <div class="weather-body">
+        <img src="images\cloud.png" alt="WeatherImage" class="weather-image">
+        
+    </div>
+    <div id="details"></div>
+</div>
+    <script>
+        //info
+        let apiKey = "c6c769965183382dd9b008f687c76219";
+        let inputValue = document.getElementById('info');
+        let details = document.getElementById("details");
+        const weather_img=document.querySelector('.weather-image');
+        
+
+        //get action
+        //submit form details
+        formy.addEventListener('submit',(e)=>{
+            e.preventDefault();
+        const url=`https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=${apiKey}&units=metric`;
+        fetch(url)
+        .then((res)=>{
+            console.log(res);
+            return res.json();
+        })
+        
+        .then((data)=>{
+            console.log(data);
+            details.innerHTML= `<h2 style="color:red; text-align:center;">City:${data.name}</h2>
+            <h1 style="text-align:center;">${data.main.temp}<sup>o</sup>C</h1>
+            <h3 style="text-align:center">${data.weather[0].description}</h3>
+            <p style="margin-top:10%"><i class="fa-solid fa-droplet"></i>${data.main.humidity}% <span style="margin-left:70%"><i class="fa-solid fa-wind"></i>${data.wind.speed}</span></p>`
+            
+                if(data.weather[0].main == 'Clouds'){
+                weather_img.src="images/cloud.png";
+                }
+                
+                else if(data.weather[0].main == 'Clear'){
+                weather_img.src="images/clear.png";
+                }
+                else if(data.weather[0].main == 'Rain'){
+                weather_img.src="images/rain.png";
+                }
+                else if(data.weather[0].main == 'Mist'){
+                weather_img.src="images/mist.png";
+                }
+                else if(data.weather[0].main == 'Snow'){
+                weather_img.src="images/snow.png";
+                }
+                
+                
+            
+        })
+        .catch((error)=>{
+            
+                weather_img.src="images/404.png";
+                details.innerHTML= `<h2 style="text-align:center;">Sorry Location Not Found</h2>`
+            alert("Enter valid city name");
+        })
+
+        })
+        
+
+    </script>
+</body>
+</html>
