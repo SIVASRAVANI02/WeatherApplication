@@ -1,4 +1,4 @@
-*{
+/*  *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -56,5 +56,176 @@ body{
 }
 .weather-body img{
     width: 60%;
+} */
+
+
+
+
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
+
+body{
+    background-color: skyblue;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* Center the container */
+.container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: pink;
+    color: white;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Header */
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: blue;
+}
+
+/* Search box */
+.serach-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.input-box {
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.serach-box button{
+    width: 46px;
+    height: 46px;
+    background-color: #e6f5fb;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+button:hover {
+    background: rgb(141, 138, 141);
+}
+
+/* Weather Image */
+.weather-body {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.weather-image {
+    width: 150px;
+    height: auto;
+}
+
+/* Weather Details */
+#details {
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .input-box {
+        width: 60%;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .input-box {
+        width: 75%;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .weather-image {
+        width: 120px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
+
+
 
